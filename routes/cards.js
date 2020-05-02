@@ -1,8 +1,8 @@
-const cardsRouter = require('express').Router(); // Создали роутер, который будет обрабатывать запросы по карточкам.
+const cardsRouter = require('express').Router();
 
-const cards = require('../data/cards.json'); //JSON с карточками
+const cards = require('../data/cards.json');
 
-cardsRouter.get('/cards', (req, res) => {
+cardsRouter.get('/', (req, res) => {
   res.send(cards);
 });
 

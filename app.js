@@ -1,19 +1,21 @@
-const express = require('express'); // Создаём сервер, для этого подключаю фрейморк 'express', предварительно его скачав.
-const path = require('path'); // Для работы с путями нам понадобится path.
+const express = require('express');
+const path = require('path');
 
-const usersRouter = require('./routes/users'); // Импортируем роутер usersRouter
-const cardsRouter = require('./routes/cards'); // Импортируем роутер cardsRouter
+const usersRouter = require('./routes/users');
+const cardsRouter = require('./routes/cards');
 
-const { PORT = 3000 } = process.env; // Записываю в const PORT свойство PORT из из process.env, если его нет, то установить 3000 порт.
+const { PORT = 3000 } = process.env;
 
-const app = express(); // Создаю приложение.
+const app = express();
 
-app.use(express.static(path.join(__dirname, 'public'))); // Сделали раздачу статических файлов, корневая папка теперь по умолчанию root/public/
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', cardsRouter); // Запускаем роутер cardsRouter
-app.use('/', usersRouter); // Запускаем роутер usersRouter
+app.use('/cards', cardsRouter);
+app.use('/users', usersRouter);
+app.use('*', (req, res) => {
+  res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
+});
 
 app.listen(PORT, () => {
-  console.log(`Сервер запущен на ${PORT} порту`);
+  // console.log(`Сервер запущен на ${PORT} порту`);
 });
-// Если сервер запустится, мы увидим в консоли его порт.
