@@ -1,8 +1,8 @@
 # node.projectOne
 
-Ссылка на проект: [node.projectOne](https://ko1p.github.io/node_one/ "Первые шаги в разработке приложения на express.js")
+Ссылка на проект: [node.projectOne](https://ko1p.github.io/node_one/public/ "Первые шаги в разработке приложения на express.js")
 
-Текущая версия: **v0.0.1**
+Текущая версия: **v0.0.3**
 
 ### Что это за проект?
 
